@@ -660,30 +660,30 @@ import { Text, View, StyleSheet, FlatList } from 'react-native';
 var obj = {
   'Lisa.Sky': {
     name: 'Lisa',
-    age: 21,
+    age: 20,
     hobbies : ["Playing Cricket","Sketching","Reading Novel","Drawing","Singing"],
   },
 };
-export default class App extends React.Component {
-  render() {
-    return (
+const App = () => {
+  return(
       <View style={styles.container}>
         <FlatList
+        keyExtractor={obj.name}
           data={Object.keys(obj)}
-          renderItem={({ item }) => {
-            return <Text>{obj[item].name}</Text>;
+          renderItem={({ items }) => {
+            return <Text>{obj[item].name,item.age,item.hobbies}</Text>;
           }}
-        />
+        /> 
       </View>
-    );
-  }
+  )
 }
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    paddingTop: Constants.statusBarHeight,
-    backgroundColor: 'blue',
-    padding: 8,
+    
+    backgroundColor: 'green',
+    padding:8,
   },
 });
+export default App;
