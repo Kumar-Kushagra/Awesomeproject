@@ -658,32 +658,48 @@ import React from 'react';
 import { Text, View, StyleSheet, FlatList } from 'react-native';
 
 var obj = {
-  'Lisa.Sky': {
+  'LisaSky': {
     name: 'Lisa',
     age: 20,
-    hobbies : ["Playing Cricket","Sketching","Reading Novel","Drawing","Singing"],
+    hobbies: ["Playing Cricket", "Sketching", "Reading Novel", "Drawing", "Singing"],
   },
 };
+
+const data = [
+  {
+    name: 'Lisa',
+    age: 20,
+    hobbies: ["Playing Cricket", "Sketching", "Reading Novel", "Drawing", "Singing"],
+  },
+  {
+    name: 'Lisa',
+    age: 20,
+    hobbies: ["Playing Cricket", "Sketching", "Reading Novel", "Drawing", "Singing"],
+  },
+  {
+    name: 'Lisa',
+    age: 20,
+    hobbies: ["Playing Cricket", "Sketching", "Reading Novel", "Drawing", "Singing"],
+  },
+]
 const App = () => {
-  return(
-      <View style={styles.container}>
-        <FlatList
-        keyExtractor={obj.name}
-          data={Object.keys(obj)}
-          renderItem={({ items }) => {
-            return <Text>{obj[item].name,item.age,item.hobbies}</Text>;
-          }}
-        /> 
-      </View>
+  return (
+    <View style={styles.container}>
+      <FlatList
+        keyExtractor={(item, index) => index}
+        data={data}
+        renderItem={({ item, index }) => <Text>{item.name}</Text>}
+      />
+    </View>
   )
 }
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    
+
     backgroundColor: 'green',
-    padding:8,
+    padding: 8,
   },
 });
 export default App;
