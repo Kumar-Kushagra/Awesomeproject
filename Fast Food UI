@@ -1,0 +1,40 @@
+import React from 'react';
+import { View, StyleSheet, Text, Image } from 'react-native';
+
+const styles = StyleSheet.create({
+  tinyLogo: {
+    width: 50,
+    height: 50,
+    marginRight:150,
+    alignSelf:"center"
+  },
+  logo: {
+    width: 50,
+    height: 50,
+    marginLeft:150,
+    alignSelf: "center"
+  }
+});
+const App = () => {
+  return (
+    <View>
+    <View style={{ flex: 1,flexdirection:"row",backgroundColor: 'palevioletred',margin:250}}>
+      <Image
+        style={styles.logo}
+        source={require('./source/assets/biscuit.png')}
+      />
+      <Image
+        style={styles.tinyLogo}
+        source={require('./source/assets/biscuit.png')}
+      />
+      </View>
+      <View>
+      <Text style={{ color: 'black', fontSize: 60, fontWeight: 'bold', alignSelf: 'center' }}>
+        Fast Food
+ </Text>
+    </View>
+    </View>
+  );
+};
+
+export default App;
