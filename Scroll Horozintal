@@ -14,22 +14,42 @@ const a = [
   {
     name: "Kyle",
     age: 40,
-    hobbies: ["Filming", "Typing", "Travelling", "Painting", "Playing"]
+    hobbies: ["Filming", "Typing", "Writing", "Photography", "Hiking"]
+  },
+  {
+    name: "John",
+    age: 29,
+    hobbies: ["Making Notes", "Swimming", "Reading Books", "Planting", "Gardening"]
+  },
+  {
+    name: "Ram",
+    age: 18,
+    hobbies: ["Playing Badmintion", "Yoga", "Excercise", "Cooking", "Reading"]
+  },
+  {
+    name: "Sam",
+    age: 38,
+    hobbies: ["Chess", "Calligraphy", "Archery","Hunting","Cycling"]
+  },
+  {
+    name: "Rahul",
+    age: 28,
+    hobbies: ["Camping", "Scuba Diving", "Pottery","Shopping","Stamp Collection"]
   },
 ]
 
 const renderview = (item) => {
   return (
-    <View style={{margin:30,backgroundColor: "lime" }}>
+    <View style={{marginVertical:20,backgroundColor: "lime" }}>
       <View style = {{margin:10,padding:10}}>
       <Text style = {styles.textStyle}>{item.name}</Text>
       <Text style = {styles.textStyle}>{item.age}</Text>
       </View>
-      <ScrollView horizontal showsHorizontalScrollIndicator = "false" style={{ height: 80 }}>
+      <ScrollView horizontal showsHorizontalScrollIndicator = "false" style={{ height: 100 }}>
         {item.hobbies.map((item, index) => {
           return (
-            <View key={index} style={{borderRadius:10,margin:10,padding:10,backgroundColor: "yellow", justifyContent: 'center' }}>
-              <Text>{item} </Text>
+            <View key={index} style={{borderRadius:10,margin:10,padding:10,backgroundColor:'yellow',justifyContent:'space-evenly' }}>
+              <Text style = {styles.textStyle} > {item} </Text>
             </View>
           )      
         })}
@@ -51,14 +71,14 @@ const App = () => {
 }
 const styles = StyleSheet.create({
   textStyle:{
-    fontSize:25,
+    fontSize:30,
     fontWeight:"bold"
   },
   container: {
     flex:1,
-    marginTop:40,
+    marginTop:40,   
     justifyContent: 'center',
-    backgroundColor: 'powderblue',
+    backgroundColor:"white",
    
     
   },
