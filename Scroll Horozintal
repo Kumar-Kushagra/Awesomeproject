@@ -1,0 +1,66 @@
+import React from 'react';
+import { Text, View, StyleSheet, FlatList, ScrollView } from 'react-native';
+const a = [
+  {
+    name: 'Lisa',
+    age: 21,
+    hobbies: ["Playing Cricket", "Sketching", "Reading Novel", "Drawing", "Singing"],
+  },
+  {
+    name: "Smith",
+    age: 22,
+    hobbies: ["Singing", "Dancing", "Travelling", "Painting", "Playing"]
+  },
+  {
+    name: "Kyle",
+    age: 40,
+    hobbies: ["Filming", "Typing", "Travelling", "Painting", "Playing"]
+  },
+]
+
+const renderview = (item) => {
+  return (
+    <View style={{margin:30,backgroundColor: "lime" }}>
+      <View style = {{margin:10,padding:10}}>
+      <Text style = {styles.textStyle}>{item.name}</Text>
+      <Text style = {styles.textStyle}>{item.age}</Text>
+      </View>
+      <ScrollView horizontal showsHorizontalScrollIndicator = "false" style={{ height: 80 }}>
+        {item.hobbies.map((item, index) => {
+          return (
+            <View key={index} style={{borderRadius:10,margin:10,padding:10,backgroundColor: "yellow", justifyContent: 'center' }}>
+              <Text>{item} </Text>
+            </View>
+          )      
+        })}
+      </ScrollView>
+    </View>
+  )
+}
+
+const App = () => {
+  return (
+    <View style={styles.container}>
+      <FlatList
+        keyExtractor={(item, index) => index}
+        data={a}
+        renderItem={({ item, index }) => { return renderview(item) }}
+      />
+    </View>
+  )
+}
+const styles = StyleSheet.create({
+  textStyle:{
+    fontSize:25,
+    fontWeight:"bold"
+  },
+  container: {
+    flex:1,
+    marginTop:40,
+    justifyContent: 'center',
+    backgroundColor: 'powderblue',
+   
+    
+  },
+});
+export default App;
